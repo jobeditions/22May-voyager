@@ -11,9 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/archive', 'PageController@archive');
+Route::get('/contact', 'PageController@contact');
+Route::get('/about', 'PageController@about');
+Route::get('/', 'PageController@login');
+
+//Route::post('/posts/{post}/comments', 'CommentController@store');
+
+Route::resource('/posts','PostController');
+
+
 
 
 Route::group(['prefix' => 'admin'], function () {
